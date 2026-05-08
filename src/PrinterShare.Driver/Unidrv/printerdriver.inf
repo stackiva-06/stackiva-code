@@ -1,0 +1,31 @@
+[Version]
+Signature="$Windows NT$"
+Class=Printer
+ClassGuid={4D36E979-E325-11CE-BFC1-08002BE10318}
+Provider=%ProviderName%
+DriverVer=05/08/2026,1.0.0.0
+CatalogFile=printerdriver.cat
+
+[Manufacturer]
+%ProviderName%=PrinterShare,NTamd64
+
+[PrinterShare.NTamd64]
+%PrinterName%=PrinterShareDriver,PSHARE_UNIVERSAL
+
+[PrinterShareDriver]
+CopyFiles=@printerdriver.gpd,@printerui.dll,@printerrender.dll
+DataFile=printerdriver.gpd
+ConfigFile=printerui.dll
+DriverFile=UNIDRV.DLL
+HelpFile=UNIDRV.HLP
+Include=NTPRINT.INF
+Needs=UNIDRV.OEM,TTFSUB.OEM
+LanguageMonitor=%LanguageMonitorName%,portmonitor.dll
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[Strings]
+ProviderName="StackIVA"
+PrinterName="PrinterShare Universal Remote Printer"
+LanguageMonitorName="PrinterShare Port Monitor"

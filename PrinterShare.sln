@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterShare.Contracts", "src\PrinterShare.Contracts\PrinterShare.Contracts.csproj", "{A9C3E97D-3F62-4927-A6E9-055B24B75A91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterShare.Host", "src\PrinterShare.Host\PrinterShare.Host.csproj", "{B1D26CC5-7830-426B-9D38-0481BD86B6DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterShare.Client", "src\PrinterShare.Client\PrinterShare.Client.csproj", "{7A76F198-B8E1-4C85-B6B8-C7D609936C94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterShare.DriverInstallerService", "src\PrinterShare.DriverInstallerService\PrinterShare.DriverInstallerService.csproj", "{B983955C-B761-49D8-A697-8D5E5F796937}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PrinterShare.Installer", "src\PrinterShare.Installer\PrinterShare.Installer.wixproj", "{5C402F65-C018-42D6-B148-72834B97A912}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinterShare.Tests", "tests\PrinterShare.Tests\PrinterShare.Tests.csproj", "{4713D229-7B1B-46AF-8933-E4E1CB52CE5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9C3E97D-3F62-4927-A6E9-055B24B75A91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C3E97D-3F62-4927-A6E9-055B24B75A91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C3E97D-3F62-4927-A6E9-055B24B75A91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C3E97D-3F62-4927-A6E9-055B24B75A91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D26CC5-7830-426B-9D38-0481BD86B6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D26CC5-7830-426B-9D38-0481BD86B6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D26CC5-7830-426B-9D38-0481BD86B6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D26CC5-7830-426B-9D38-0481BD86B6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A76F198-B8E1-4C85-B6B8-C7D609936C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A76F198-B8E1-4C85-B6B8-C7D609936C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A76F198-B8E1-4C85-B6B8-C7D609936C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A76F198-B8E1-4C85-B6B8-C7D609936C94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B983955C-B761-49D8-A697-8D5E5F796937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B983955C-B761-49D8-A697-8D5E5F796937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B983955C-B761-49D8-A697-8D5E5F796937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B983955C-B761-49D8-A697-8D5E5F796937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4713D229-7B1B-46AF-8933-E4E1CB52CE5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4713D229-7B1B-46AF-8933-E4E1CB52CE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4713D229-7B1B-46AF-8933-E4E1CB52CE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4713D229-7B1B-46AF-8933-E4E1CB52CE5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

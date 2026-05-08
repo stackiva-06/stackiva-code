@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+option csharp_namespace = "PrinterShare.Contracts.Grpc";
+
+package printershare.v1;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service PrinterService {
+  rpc GetSharedPrinters(google.protobuf.Empty) returns (stream PrinterInfo);
+  rpc WatchPrinterStatus(PrinterRequest) returns (stream PrinterStatus);
+  rpc SubmitPrintJob(stream PrintJobChunk) returns (PrintJobResponse);
+  rpc GetJobStatus(JobRequest) returns (JobStatus);
+  rpc CancelJob(JobRequest) returns (CancelResponse);
+  rpc RegisterClient(ClientInfo) returns (RegistrationResponse);
+  rpc Heartbeat(ClientInfo) returns (HeartbeatResponse);
+  rpc GetPrinterCapabilities(PrinterRequest) returns (PrinterCapabilities);
+}
+
+message PrinterInfo {
+  string printer_id = 1;
+  string display_name = 2;
+  string host_name = 3;
+  string model = 4;
+  bool is_default = 5;
+  bool is_shared = 6;
+  PrinterCapabilities capabilities = 7;
+}
+
+message PrinterRequest {
+  string printer_id = 1;
+  string client_id = 2;
+}
+
+message PrinterStatus {
+  string printer_id = 1;
+  PrinterState state = 2;
+  string message = 3;
+  int32 queued_jobs = 4;
+  google.protobuf.Timestamp observed_at = 5;
+}
+
+message PrintJobChunk {
+  bytes data = 1;
+  int64 job_id = 2;
+  int32 chunk_index = 3;
+  int32 total_chunks = 4;
+  PrintJobMetadata metadata = 5;
+}
+
+message PrintJobMetadata {
+  string printer_id = 1;
+  string client_id = 2;
+  string document_name = 3;
+  string owner = 4;
+  string content_type = 5;
+  int32 copies = 6;
+  bool color = 7;
+  bool duplex = 8;
+  string paper_size = 9;
+}
+
+message PrintJobResponse {
+  int64 job_id = 1;
+  bool accepted = 2;
+  string message = 3;
+}
+
+message JobRequest {
+  int64 job_id = 1;
+  string client_id = 2;
+}
+
+message JobStatus {
+  int64 job_id = 1;
+  JobState state = 2;
+  string message = 3;
+  int32 progress_percent = 4;
+}
+
+message CancelResponse {
+  int64 job_id = 1;
+  bool cancelled = 2;
+  string message = 3;
+}
+
+message ClientInfo {
+  string client_id = 1;
+  string display_name = 2;
+  string certificate_thumbprint = 3;
+  repeated string allowed_printer_ids = 4;
+}
+
+message RegistrationResponse {
+  bool accepted = 1;
+  string session_token = 2;
+  string message = 3;
+}
+
+message HeartbeatResponse {
+  bool ok = 1;
+  google.protobuf.Timestamp server_time = 2;
+}
+
+message PrinterCapabilities {
+  repeated string page_sizes = 1;
+  repeated int32 resolutions_dpi = 2;
+  bool supports_color = 3;
+  bool supports_duplex = 4;
+  repeated string paper_sources = 5;
+  bool supports_stapling = 6;
+  bool supports_hole_punch = 7;
+}
+
+enum PrinterState {
+  PRINTER_STATE_UNKNOWN = 0;
+  PRINTER_STATE_READY = 1;
+  PRINTER_STATE_OFFLINE = 2;
+  PRINTER_STATE_PRINTING = 3;
+  PRINTER_STATE_PAPER_JAM = 4;
+  PRINTER_STATE_LOW_INK = 5;
+  PRINTER_STATE_ERROR = 6;
+}
+
+enum JobState {
+  JOB_STATE_UNKNOWN = 0;
+  JOB_STATE_QUEUED = 1;
+  JOB_STATE_STREAMING = 2;
+  JOB_STATE_PRINTING = 3;
+  JOB_STATE_COMPLETED = 4;
+  JOB_STATE_CANCELLED = 5;
+  JOB_STATE_FAILED = 6;
+}

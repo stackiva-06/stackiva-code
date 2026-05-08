@@ -1,0 +1,37 @@
+*GPDFileVersion: "1.0"
+*GPDSpecVersion: "1.0"
+*GPDFileName: "printerdriver.gpd"
+*ModelName: "PrinterShare Universal Remote Printer"
+*MasterUnits: PAIR(1200, 1200)
+*ResourceDLL: "unires.dll"
+*PrinterType: PAGE
+*MaxCopies: 999
+*ColorMode: COLOR
+*DefaultOption: Letter
+
+*Feature: PageSize
+{
+  *Name: "Paper Size"
+  *DefaultOption: Letter
+  *Option: Letter { *Name: "Letter" *PageDimensions: PAIR(10200, 13200) *PrintableArea: PAIR(9600, 12600) *PrintableOrigin: PAIR(300, 300) }
+  *Option: A4 { *Name: "A4" *PageDimensions: PAIR(9920, 14032) *PrintableArea: PAIR(9320, 13432) *PrintableOrigin: PAIR(300, 300) }
+  *Option: Legal { *Name: "Legal" *PageDimensions: PAIR(10200, 16800) *PrintableArea: PAIR(9600, 16200) *PrintableOrigin: PAIR(300, 300) }
+}
+
+*Feature: Resolution
+{
+  *Name: "Resolution"
+  *DefaultOption: DPI600
+  *Option: DPI300 { *Name: "300 DPI" *DPI: PAIR(300, 300) }
+  *Option: DPI600 { *Name: "600 DPI" *DPI: PAIR(600, 600) }
+  *Option: DPI1200 { *Name: "1200 DPI" *DPI: PAIR(1200, 1200) }
+}
+
+*Feature: Duplex
+{
+  *Name: "Two-Sided Printing"
+  *DefaultOption: None
+  *Option: None { *Name: "Off" }
+  *Option: DuplexNoTumble { *Name: "Long Edge" }
+  *Option: DuplexTumble { *Name: "Short Edge" }
+}

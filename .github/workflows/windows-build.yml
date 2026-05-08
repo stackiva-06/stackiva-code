@@ -1,0 +1,20 @@
+name: Windows Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Restore
+        run: dotnet restore PrinterShare.sln
+      - name: Build
+        run: dotnet build PrinterShare.sln --configuration Release --no-restore
+      - name: Test
+        run: dotnet test tests/PrinterShare.Tests/PrinterShare.Tests.csproj --configuration Release --no-build

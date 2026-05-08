@@ -1,0 +1,11 @@
+<Project Sdk="WixToolset.Sdk/5.0.1">
+  <PropertyGroup>
+    <OutputName>PrinterShare</OutputName>
+    <OutputType>Package</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrinterShare.Client\PrinterShare.Client.csproj" Publish="true" />
+    <ProjectReference Include="..\PrinterShare.Host\PrinterShare.Host.csproj" Publish="true" />
+    <ProjectReference Include="..\PrinterShare.DriverInstallerService\PrinterShare.DriverInstallerService.csproj" Publish="true" />
+  </ItemGroup>
+</Project>
