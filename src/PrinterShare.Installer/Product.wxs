@@ -1,0 +1,24 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="PrinterShare" Manufacturer="StackIVA" Version="1.0.0.0" UpgradeCode="2a7afbb5-e401-4092-9d71-8a9bdc9a2e49">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of PrinterShare is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Feature Id="HostFeature" Title="PrinterShare Host" Level="1">
+      <ComponentGroupRef Id="ApplicationComponents" />
+    </Feature>
+  </Package>
+
+  <Fragment>
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="PrinterShare" />
+    </StandardDirectory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ApplicationComponents" Directory="INSTALLFOLDER">
+      <Component Id="ReadmeComponent" Guid="9A6C13BA-1A7E-4073-B32D-830AF6C8A54F">
+        <File Source="..\..\README.md" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
